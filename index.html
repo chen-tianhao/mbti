@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>心镜测评 · MBTI / 16Personalities / 大五人格</title>
+  <meta name="description" content="三套经典人格测评体系，认真作答几分钟，获得可发送到邮箱的深度分析报告。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@500;600;700&family=Inter:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ============ Header ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="logo" data-nav="home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="10" fill="#6C5CE7"/>
+          <circle cx="16" cy="13" r="5" fill="#FFFFFF"/>
+          <path d="M8 24c2-4 6-6 8-6s6 2 8 6" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="logo-text">心镜测评</span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#tests">测试介绍</a>
+      <a href="#steps">使用指南</a>
+      <a href="#about">关于</a>
+    </nav>
+    <button class="btn btn-primary btn-sm" id="headerCta" data-nav="tests">开始测试</button>
+  </header>
+
+  <main id="main">
+    <!-- ============ 视图 1：首页 ============ -->
+    <section class="view" id="view-home">
+      <div class="hero">
+        <span class="chip">免费 · 科学题库 · 即时出结果</span>
+        <h1>认识自己，从一次认真的测评开始</h1>
+        <p class="hero-sub">三套经典人格测评体系，覆盖 MBTI、16Personalities 与大五人格。认真作答几分钟，获得一份正式、可发送到邮箱的深度分析报告。</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" data-nav="tests">选择测评并开始</button>
+          <a class="link" href="#steps">先了解测评依据与计分方式</a>
+        </div>
+      </div>
+
+      <div class="section" id="tests">
+        <h2 class="section-title">选择你的测评</h2>
+        <p class="section-sub">三种体系，三种视角。挑一个开始，也可以都试一遍。</p>
+        <div class="test-cards" id="testCards">
+          <!-- 由 app.js 渲染 -->
+        </div>
+      </div>
+
+      <div class="section section-alt" id="steps">
+        <h2 class="section-title">三步获取你的分析报告</h2>
+        <div class="steps">
+          <div class="step-card">
+            <span class="step-num" style="color:#6C5CE7">01</span>
+            <h3>选择测评</h3>
+            <p>从 MBTI、16Personalities 或大五人格中挑一套，也可以三套都测。</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num" style="color:#23A094">02</span>
+            <h3>完成答题</h3>
+            <p>五级选项凭第一反应作答，进度自动保存，中途离开也不怕丢失。</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num" style="color:#D64BA0">03</span>
+            <h3>查看并发送报告</h3>
+            <p>在线查看正式分析，填写姓名与邮箱，一键把 PDF 报告寄给自己。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="about">
+        <h2 class="section-title">为什么选择心镜测评</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-icon" style="background:#EFECFF">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="#6C5CE7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>科学题库</h3>
+            <p>每道题标注来源，正反向陈述平衡设计，降低作答偏差。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" style="background:#E3F5F2">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#23A094" stroke-width="2"/><path d="M10 6v4l3 2" stroke="#23A094" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>正式结果分析</h3>
+            <p>维度得分、认知功能栈、优势短板与成长建议一次给全。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" style="background:#FFECFA">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="5" y="3" width="10" height="14" rx="2" stroke="#D64BA0" stroke-width="2"/><path d="M8 8h4M8 12h4" stroke="#D64BA0" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>PDF 邮件报告</h3>
+            <p>填写姓名与邮箱，正式报告即刻送达，随时可以回看。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" style="background:#FFF4DC">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="9" rx="2" stroke="#D69B2B" stroke-width="2"/><rect x="13" y="9" width="5" height="8" rx="1.5" fill="#FFF4DC" stroke="#D69B2B" stroke-width="2"/></svg>
+            </span>
+            <h3>多端适配</h3>
+            <p>手机、平板、电脑布局自动适配，答题体验一致流畅。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 视图 2：答题页 ============ -->
+    <section class="view" id="view-quiz" hidden>
+      <div class="quiz-wrap">
+        <div class="quiz-topline">
+          <button class="btn-text" id="quizBack">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            返回首页
+          </button>
+          <strong id="quizTitle">MBTI 性格类型测评</strong>
+          <button class="btn-text" id="quizExit">退出测试</button>
+        </div>
+
+        <div class="progress-block">
+          <div class="progress-meta">
+            <span id="progressNum">第 1 / 72 题</span>
+            <span id="progressTime">预计还需 12 分钟</span>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+
+        <div class="question-card">
+          <p class="question-hint">单选题 · 请凭第一反应作答，答案没有对错</p>
+          <h2 class="question-text" id="questionText">题目加载中…</h2>
+          <div class="options" id="optionsBox"></div>
+        </div>
+
+        <div class="quiz-nav">
+          <button class="btn btn-ghost" id="btnPrev">上一题</button>
+          <button class="btn btn-primary" id="btnNext">下一题</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 视图 3：结果页 ============ -->
+    <section class="view" id="view-result" hidden>
+      <div class="result-hero" id="resultHero"></div>
+      <div class="result-dims" id="resultDims"></div>
+      <div class="result-analysis" id="resultAnalysis"></div>
+
+      <div class="email-card" id="emailCard">
+        <h2>把 PDF 报告发送到你的邮箱</h2>
+        <p class="email-sub">发件人为系统固定地址 <code>noreply@mail.mindmirror.example</code>，提交后报告将发送到你填写的邮箱。</p>
+        <form id="emailForm" novalidate>
+          <div class="field-row">
+            <label class="field">
+              <span>姓名</span>
+              <input type="text" name="name" placeholder="请输入姓名" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span>性别</span>
+              <select name="gender" required>
+                <option value="">请选择</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+                <option value="不便透露">不便透露</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>年龄</span>
+              <input type="number" name="age" placeholder="请输入年龄" min="1" max="120" required />
+            </label>
+          </div>
+          <label class="field">
+            <span>Email 地址</span>
+            <input type="email" name="email" placeholder="name@example.com" autocomplete="email" required />
+          </label>
+          <button class="btn btn-primary btn-lg btn-block" type="submit" id="btnSend">生成 PDF 并发送到邮箱</button>
+          <p class="form-note">报告仅发送给你本人，我们不会保存或分享你的个人信息。</p>
+          <p class="form-msg" id="formMsg" role="status"></p>
+        </form>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-ghost" id="btnRetake">重新测试</button>
+        <button class="btn btn-ghost" id="btnOther">试试其他测评</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div>
+        <div class="logo-text light">心镜测评</div>
+        <p class="footer-tag">让自我认知变得清晰而友好。</p>
+      </div>
+      <p class="footer-links">测试介绍　　使用指南　　邮件配置说明　　关于我们</p>
+    </div>
+    <div class="footer-bottom">2026 心镜测评 · 结果仅供自我探索参考，不构成任何临床诊断或专业建议。</div>
+  </footer>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

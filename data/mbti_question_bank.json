@@ -1,0 +1,2698 @@
+{
+  "meta": {
+    "id": "mbti",
+    "title": "MBTI 性格类型测评题库",
+    "titleEn": "MBTI Personality Type Question Bank",
+    "framework": "Myers-Briggs Type Indicator（基于荣格心理类型理论的四维度二分模型）",
+    "version": "1.0.0",
+    "language": "zh-CN",
+    "createdAt": "2026-10-28",
+    "questionCount": 72,
+    "dimensionsCount": 4,
+    "optionType": "likert5",
+    "scoringModel": "bipolar",
+    "resultModel": "categorical",
+    "resultSummary": "四个维度各取得分较高一侧的字母，按 EI-SN-TF-JP 顺序组合为 16 种类型代码（如 INTJ、ESFP）。每维度 18 题、分值区间 -36 ~ +36。",
+    "estimatedMinutes": 12,
+    "sourceStatement": "官方 MBTI 量表题目受版权保护，本题库不复制任何官方题目。全部 72 题均为自行编制，维度定义、类型命名与认知功能栈依据荣格《心理类型》（1921）及 Myers-Briggs 框架的公开表述。",
+    "sources": [
+      {
+        "id": "jung-1921",
+        "type": "public",
+        "title": "C. G. Jung《Psychological Types》（1921）",
+        "url": null,
+        "note": "荣格心理类型理论原著，MBTI 四维度（E/I、S/N、T/F、J/P）与认知功能的理论源头。"
+      },
+      {
+        "id": "mbti-official-framework",
+        "type": "public",
+        "title": "The Myers-Briggs Company 公开框架说明",
+        "url": "https://www.themyersbriggs.com/",
+        "note": "仅参考其官网公开的维度命名与类型框架表述，未使用其受版权保护的测评题目。"
+      },
+      {
+        "id": "self-mbti",
+        "type": "self",
+        "title": "自行编制 MBTI 四维度题库",
+        "url": null,
+        "note": "本文件全部题目均为自行编制，覆盖 E/I、S/N、T/F、J/P 四个维度，每维度 18 题，正反向陈述交替以降低默认作答偏差。"
+      }
+    ],
+    "presentationNote": "questions 数组已按维度交错排列（同维度题目等间隔出现），前端可直接顺序呈现；如需进一步降低作答规律性，建议在用户作答时随机打乱题目顺序，题目 id 保持不变。"
+  },
+  "dimensions": [
+    {
+      "code": "EI",
+      "name": "精力方向",
+      "nameEn": "Energy Source",
+      "description": "心理能量的来源与指向：从外部世界的人与活动中获取能量，还是从独处与内在反思中恢复能量。",
+      "poleA": {
+        "code": "E",
+        "name": "外向",
+        "nameEn": "Extraversion",
+        "description": "倾向于通过与人互动、行动和外部刺激获取能量；思维常边说边成型，乐于成为互动的发起者。"
+      },
+      "poleB": {
+        "code": "I",
+        "name": "内向",
+        "nameEn": "Introversion",
+        "description": "倾向于在独处、深度思考与少量深度交流中恢复能量；先在内心组织想法再表达，回避过度刺激。"
+      }
+    },
+    {
+      "code": "SN",
+      "name": "信息认知",
+      "nameEn": "Information Perception",
+      "description": "获取与处理信息的方式：偏好具体、可验证的事实与细节，还是偏好模式、可能性与整体意义。",
+      "poleA": {
+        "code": "S",
+        "name": "感觉",
+        "nameEn": "Sensing",
+        "description": "关注当下具体、可感知的事实、细节与经验；信任已验证的方法，描述精确、落地。"
+      },
+      "poleB": {
+        "code": "N",
+        "name": "直觉",
+        "nameEn": "Intuition",
+        "description": "关注事物背后的模式、可能性与未来走向；喜欢抽象概念、假设与隐喻，联想发散。"
+      }
+    },
+    {
+      "code": "TF",
+      "name": "决策方式",
+      "nameEn": "Decision Making",
+      "description": "做决定时的优先依据：逻辑一致性与客观标准，还是相关者的感受、价值与人际和谐。",
+      "poleA": {
+        "code": "T",
+        "name": "思考",
+        "nameEn": "Thinking",
+        "description": "以逻辑、因果、公平一致的客观标准做决定；就事论事，擅长指出结构漏洞。"
+      },
+      "poleB": {
+        "code": "F",
+        "name": "情感",
+        "nameEn": "Feeling",
+        "description": "以对人的影响、价值认同与关系和谐做决定；体察情绪，重视表达方式与共识。"
+      }
+    },
+    {
+      "code": "JP",
+      "name": "生活方式",
+      "nameEn": "Lifestyle Orientation",
+      "description": "应对外部世界的方式：偏好尽早决定、按计划推进，还是保持开放、随机应变。",
+      "poleA": {
+        "code": "J",
+        "name": "判断",
+        "nameEn": "Judging",
+        "description": "喜欢计划、清单与确定性；尽快收尾决策，按日程推进，未决事项易引发不安。"
+      },
+      "poleB": {
+        "code": "P",
+        "name": "知觉",
+        "nameEn": "Perceiving",
+        "description": "喜欢灵活、开放与可能性；延迟决定、随机应变，同时开启多件事再动态调整。"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "MBTI-001",
+      "dimension": "EI",
+      "text": "在热闹的聚会或集体活动之后，我通常感到更有精神，而不是被掏空。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-011",
+      "dimension": "SN",
+      "text": "我更关注眼前具体、可验证的事实和细节，而不是事物背后的象征意义。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-021",
+      "dimension": "TF",
+      "text": "做决定时，我更看重逻辑上是否成立、标准是否一致公平。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-031",
+      "dimension": "JP",
+      "text": "我喜欢提前把计划定好，然后按日程一步步推进。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-002",
+      "dimension": "EI",
+      "text": "我需要一定的独处时间，才能把精力重新恢复过来。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-012",
+      "dimension": "SN",
+      "text": "我常常不由自主地想到一件事背后的可能性、寓意和未来走向。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-022",
+      "dimension": "TF",
+      "text": "做决定时，我会优先考虑相关的人会有什么感受和反应。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-032",
+      "dimension": "JP",
+      "text": "比起早早定死方案，我更愿意保持灵活，视情况随机应变。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-003",
+      "dimension": "EI",
+      "text": "遇到问题时，我更愿意找人聊一聊、边说边想，而不是自己闷头想清楚再说。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-013",
+      "dimension": "SN",
+      "text": "学习新东西时，我更喜欢有清晰的操作步骤、实例和可立即套用的方法。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-023",
+      "dimension": "TF",
+      "text": "讨论方案时，我更擅长指出其中的逻辑漏洞，而不是照顾大家的情绪。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-033",
+      "dimension": "JP",
+      "text": "一件事悬而未决太久，我会明显感到不安，想尽快把它定下来。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-004",
+      "dimension": "EI",
+      "text": "我常常在心里把话完整想好，才开口表达。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-014",
+      "dimension": "SN",
+      "text": "我容易被抽象的概念、理论模型和隐喻所吸引，即使它们暂时没有实际用处。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-024",
+      "dimension": "TF",
+      "text": "即使结论是对的，如果表达方式让人难堪，我也觉得这件事办得不妥。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-034",
+      "dimension": "JP",
+      "text": "我常常到最后一刻才真正动手，但通常也能完成。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-005",
+      "dimension": "EI",
+      "text": "到了一个全新的环境，我会主动和陌生人攀谈、认识新朋友。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-015",
+      "dimension": "SN",
+      "text": "描述一件事时，我会尽量给出准确、具体的细节，而不是概括大意。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-025",
+      "dimension": "TF",
+      "text": "争论中我最在意的是观点本身是否站得住脚，而不是谁被说服了。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-035",
+      "dimension": "JP",
+      "text": "把任务拆成清单并逐项打勾，会让我很有满足感。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-006",
+      "dimension": "EI",
+      "text": "电话或语音突然响起时，我第一反应往往是希望对方改用文字消息。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-016",
+      "dimension": "SN",
+      "text": "我经常凭直觉或一种“预感”把握事情的整体方向，事后再补细节。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-026",
+      "dimension": "TF",
+      "text": "我很难做出让亲近的人失望的决定，哪怕我知道那个决定更“正确”。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-036",
+      "dimension": "JP",
+      "text": "过于死板的计划和流程会让我觉得被束缚。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-007",
+      "dimension": "EI",
+      "text": "我喜欢在人多、热闹、随时有人交流的环境里工作或学习。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-017",
+      "dimension": "SN",
+      "text": "我更相信亲身经验和已经反复验证过的方法，而不是尚未检验的新设想。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-027",
+      "dimension": "TF",
+      "text": "我倾向于把工作问题和私人感情分开，尽量就事论事。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-037",
+      "dimension": "JP",
+      "text": "我倾向于尽快把决定做完，然后安心去做别的事。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-008",
+      "dimension": "EI",
+      "text": "相比大型聚会，我更享受与一两位朋友进行长时间的深度对谈。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-018",
+      "dimension": "SN",
+      "text": "我喜欢思考“如果……会怎样”这类假设性问题，哪怕它们与眼下无关。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-028",
+      "dimension": "TF",
+      "text": "我能很快察觉到房间里的气氛发生了变化，哪怕没人明说。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-038",
+      "dimension": "JP",
+      "text": "我喜欢同时开启好几件事，再根据进展动态调整优先级。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-009",
+      "dimension": "EI",
+      "text": "在群体对话中，我很容易成为话题的发起者或带动者。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-019",
+      "dimension": "SN",
+      "text": "处理信息时，我倾向于先把实际情况弄清楚，再去讨论它的意义。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-029",
+      "dimension": "TF",
+      "text": "当别人说我“说话太直”时，我更倾向于认为是对方过于敏感。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-039",
+      "dimension": "JP",
+      "text": "出门旅行前，我会提前订好行程、住宿和每天的大致安排。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-010",
+      "dimension": "EI",
+      "text": "连续社交或应酬几天之后，我会明显感到疲惫，需要安静下来回血。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-020",
+      "dimension": "SN",
+      "text": "我脑子里常常同时冒出很多点子，注意力容易在不同念头之间跳来跳去。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-030",
+      "dimension": "TF",
+      "text": "在给别人提意见或批评之前，我会先想清楚怎么说才不伤人。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-040",
+      "dimension": "JP",
+      "text": "突如其来的临时安排，有时反而让我觉得兴奋、有意思。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-041",
+      "dimension": "EI",
+      "text": "在团队协作时，我倾向于边讨论边完善想法，而不是各自独立完成后再汇总。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-049",
+      "dimension": "SN",
+      "text": "我更愿意相信看得见、摸得着的证据，而不是漂亮的推论。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-057",
+      "dimension": "TF",
+      "text": "评价一个方案时，我首先看它的逻辑与数据是否站得住。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-065",
+      "dimension": "JP",
+      "text": "我喜欢在动手之前先明确目标、步骤和时间表。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-042",
+      "dimension": "EI",
+      "text": "我更喜欢先把事情独自想透，再一次性完整地表达出来。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-050",
+      "dimension": "SN",
+      "text": "我常常能看到一件事与另一件看似无关的事之间的联系。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-058",
+      "dimension": "TF",
+      "text": "做出可能影响他人的决定之前，我会反复掂量对方的感受。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-066",
+      "dimension": "JP",
+      "text": "临时变动打乱计划时，我通常很快就能接受并调整。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-043",
+      "dimension": "EI",
+      "text": "空闲下来时，我更想找人一起做点什么，而不是自己安排。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-051",
+      "dimension": "SN",
+      "text": "描述一次经历时，我会自然地讲出时间、地点和具体经过。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-059",
+      "dimension": "TF",
+      "text": "我认为给出“真实的反馈”比“让人舒服的反馈”更重要。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-067",
+      "dimension": "JP",
+      "text": "我会定期整理自己的任务清单、文件和生活空间。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-044",
+      "dimension": "EI",
+      "text": "在嘈杂、人来人往的环境里，我很难集中注意力。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-052",
+      "dimension": "SN",
+      "text": "我对“未来十年会怎样”这类话题总有说不完的想法。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-060",
+      "dimension": "TF",
+      "text": "当团队里有人情绪低落时，我会忍不住先去关心他。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-068",
+      "dimension": "JP",
+      "text": "我常常凭当下的感觉和状态决定下一步做什么。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-045",
+      "dimension": "EI",
+      "text": "我愿意在公开场合发言、做展示或主持活动。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-053",
+      "dimension": "SN",
+      "text": "学习使用新工具时，我希望有人先给我演示具体操作步骤。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-061",
+      "dimension": "TF",
+      "text": "争论时如果对方的逻辑不成立，我会直接指出来。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-069",
+      "dimension": "JP",
+      "text": "把不确定的事尽早确定下来，会让我轻松很多。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-046",
+      "dimension": "EI",
+      "text": "我通常不会主动联系不太熟的人，哪怕心里想了解对方。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-054",
+      "dimension": "SN",
+      "text": "比起操作手册，我更愿意先弄清这个工具背后的设计原理。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-062",
+      "dimension": "TF",
+      "text": "我很容易因为别人的一句夸奖而开心很久。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-070",
+      "dimension": "JP",
+      "text": "我享受“顺其自然”的状态，不喜欢把一切都安排死。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-047",
+      "dimension": "EI",
+      "text": "认识新朋友对我来说是件轻松愉快的事。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-055",
+      "dimension": "SN",
+      "text": "我会留意周围环境里的细节变化，比如摆设、路况和他人状态。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-063",
+      "dimension": "TF",
+      "text": "我习惯把情绪和事情分开处理，不喜欢情绪干扰判断。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-071",
+      "dimension": "JP",
+      "text": "我通常会提前完成任务，不喜欢一直压到最后。",
+      "direction": "A",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-048",
+      "dimension": "EI",
+      "text": "如果一天安排了三场以上的会面，我会觉得非常消耗。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-056",
+      "dimension": "SN",
+      "text": "我常常沉浸在自己的想象或脑内小剧场里。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-064",
+      "dimension": "TF",
+      "text": "看到感人的情节，我的情绪反应往往比身边人更强烈。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "MBTI-072",
+      "dimension": "JP",
+      "text": "我发现自己在截止日期临近时，效率反而更高。",
+      "direction": "B",
+      "sourceId": "self-mbti",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "perQuestion": "每题选择一个选项，选项自带 score（-2 ~ +2）。score > 0 表示偏向该维度 poleA，score < 0 表示偏向 poleB，0 为中立。",
+    "aggregation": "对每个维度 code（EI/SN/TF/JP），累加该维度下 18 道题所选选项的 score，得到维度得分（范围 -36 ~ +36）。",
+    "interpretation": "维度得分 > 0 取 poleA 字母；< 0 取 poleB 字母；= 0 表示该维度不明显偏向，结果类型标记为 X（如 INXJ），或提示用户该维度需人工判读。",
+    "letterOrder": [
+      "EI",
+      "SN",
+      "TF",
+      "JP"
+    ],
+    "tieBreak": "若维度得分为 0，推荐输出含 X 的类型代码并在结果页提示“该维度倾向不明显”，避免强行二分。",
+    "clientPseudocode": "for q in questions: dimScore[q.dimension] += selectedOption.score; type = (dimScore.EI>=0?'E':'I') + (dimScore.SN>=0?'S':'N') + (dimScore.TF>=0?'T':'F') + (dimScore.JP>=0?'J':'P')"
+  },
+  "results": {
+    "type": "categorical",
+    "combination": "四个维度取侧别字母后按 EI-SN-TF-JP 顺序拼接，共 16 种类型。",
+    "types": [
+      {
+        "code": "INTJ",
+        "name": "建筑师",
+        "nameEn": "Architect",
+        "cognitiveStack": "Ni-Te-Fi-Se",
+        "summary": "独立、有远见的战略思考者，善于构建长期体系并推动落地，重视能力与内在标准。"
+      },
+      {
+        "code": "INTP",
+        "name": "逻辑学家",
+        "nameEn": "Logician",
+        "cognitiveStack": "Ti-Ne-Si-Fe",
+        "summary": "热衷于拆解概念、检验逻辑自洽的思想者，对理论与可能性充满好奇，讨厌不合理。"
+      },
+      {
+        "code": "ENTJ",
+        "name": "指挥官",
+        "nameEn": "Commander",
+        "cognitiveStack": "Te-Ni-Se-Fi",
+        "summary": "天生的组织者与战略执行者，目标感强，善于调动资源达成结果，直面冲突。"
+      },
+      {
+        "code": "ENTP",
+        "name": "辩论家",
+        "nameEn": "Debater",
+        "cognitiveStack": "Ne-Ti-Fe-Si",
+        "summary": "机敏、好奇的点子发生器，喜欢挑战常规与辩论可能性，讨厌被教条束缚。"
+      },
+      {
+        "code": "INFJ",
+        "name": "提倡者",
+        "nameEn": "Advocate",
+        "cognitiveStack": "Ni-Fe-Ti-Se",
+        "summary": "富有洞察力与理想主义的引导者，关注人的成长与意义，安静而坚定。"
+      },
+      {
+        "code": "INFP",
+        "name": "调停者",
+        "nameEn": "Mediator",
+        "cognitiveStack": "Fi-Ne-Si-Te",
+        "summary": "忠于内在价值与理想的诗意守护者，温柔敏感，追求真实与意义。"
+      },
+      {
+        "code": "ENFJ",
+        "name": "主人公",
+        "nameEn": "Protagonist",
+        "cognitiveStack": "Fe-Ni-Se-Ti",
+        "summary": "有感染力的引导者与协调者，关注他人潜能与群体氛围，善于激励。"
+      },
+      {
+        "code": "ENFP",
+        "name": "竞选者",
+        "nameEn": "Campaigner",
+        "cognitiveStack": "Ne-Fi-Te-Si",
+        "summary": "热情、自由、富有创造力的灵感源泉，重视可能性与真诚连接。"
+      },
+      {
+        "code": "ISTJ",
+        "name": "物流师",
+        "nameEn": "Logistician",
+        "cognitiveStack": "Si-Te-Fi-Ne",
+        "summary": "可靠、务实、注重秩序的执行者，信守承诺，用事实与流程说话。"
+      },
+      {
+        "code": "ISFJ",
+        "name": "守卫者",
+        "nameEn": "Defender",
+        "cognitiveStack": "Si-Fe-Ti-Ne",
+        "summary": "温暖尽责的守护者，细致体贴，默默承担，重视传统与责任。"
+      },
+      {
+        "code": "ESTJ",
+        "name": "总经理",
+        "nameEn": "Executive",
+        "cognitiveStack": "Te-Si-Ne-Fi",
+        "summary": "果断高效的管理者，重视规则、秩序与可衡量的结果，直接了当。"
+      },
+      {
+        "code": "ESFJ",
+        "name": "执政官",
+        "nameEn": "Consul",
+        "cognitiveStack": "Fe-Si-Ne-Ti",
+        "summary": "热心周到的组织者与照顾者，重视和谐、责任与他人的需要。"
+      },
+      {
+        "code": "ISTP",
+        "name": "鉴赏家",
+        "nameEn": "Virtuoso",
+        "cognitiveStack": "Ti-Se-Ni-Fe",
+        "summary": "冷静务实的问题解决者，擅长动手拆解与应急处理，崇尚自由与效率。"
+      },
+      {
+        "code": "ISFP",
+        "name": "探险家",
+        "nameEn": "Adventurer",
+        "cognitiveStack": "Fi-Se-Ni-Te",
+        "summary": "敏感而自由的审美者，忠于内心感受与当下体验，低调温和。"
+      },
+      {
+        "code": "ESTP",
+        "name": "企业家",
+        "nameEn": "Entrepreneur",
+        "cognitiveStack": "Se-Ti-Fe-Ni",
+        "summary": "行动力强的现实主义者，善于抓住当下机会、快速解决问题。"
+      },
+      {
+        "code": "ESFP",
+        "name": "表演者",
+        "nameEn": "Entertainer",
+        "cognitiveStack": "Se-Fi-Te-Ni",
+        "summary": "热情洋溢的现场型人格，擅长带动气氛、享受当下、关心身边的人。"
+      }
+    ]
+  }
+}

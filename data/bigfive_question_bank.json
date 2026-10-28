@@ -1,0 +1,3612 @@
+{
+  "meta": {
+    "id": "bigfive",
+    "title": "Big Five（大五人格）测评题库",
+    "titleEn": "Big Five Personality Question Bank",
+    "framework": "Big Five / OCEAN 五因素模型（Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism）",
+    "version": "1.0.0",
+    "language": "zh-CN",
+    "createdAt": "2026-10-28",
+    "questionCount": 100,
+    "dimensionsCount": 5,
+    "optionType": "likert5",
+    "scoringModel": "unipolar",
+    "resultModel": "dimensional",
+    "resultSummary": "五个特质独立计分，不组合为类型。每个特质 20 题、得分范围 20 ~ 100，按分段解释高/中/低水平。反向题的选项分值已在题目内直接反转，前端只需对所选选项 score 求和。",
+    "estimatedMinutes": 15,
+    "sourceStatement": "本题库以公有领域的 IPIP（International Personality Item Pool）题项为结构与内容参考，进行中文翻译改写与本土化调整，并补充自行编制题目。IPIP 题项允许自由使用与改编；BFI-44 仅作为特质结构的参考框架，未复制其受许可限制的原文题目。每题均标注来源类型。",
+    "sources": [
+      {
+        "id": "ipip",
+        "type": "public",
+        "title": "International Personality Item Pool (IPIP)，Goldberg 等，公有领域",
+        "url": "https://ipip.ori.org/",
+        "note": "IPIP 题项属于公有领域，可自由使用与改编。本题库中 sourceId 为 ipip-adapted 的题目均为 IPIP 题项的中文翻译改写。"
+      },
+      {
+        "id": "bfi-ref",
+        "type": "public",
+        "title": "Big Five Inventory (BFI-44)，John & Srivastava（1999）",
+        "url": null,
+        "note": "仅作为五特质结构与维度命名的参考框架，未复制其原文题目。"
+      },
+      {
+        "id": "self-bf",
+        "type": "self",
+        "title": "自行编制大五人格题库",
+        "url": null,
+        "note": "sourceId 为 self-bf 的题目为自行编制，用于补足每个特质的正向/反向题目数量，保持 20 题/特质的均衡结构。"
+      }
+    ],
+    "presentationNote": "questions 数组已按维度交错排列（同维度题目等间隔出现），前端可直接顺序呈现；如需进一步降低作答规律性，建议在用户作答时随机打乱题目顺序，题目 id 保持不变。"
+  },
+  "dimensions": [
+    {
+      "code": "O",
+      "name": "开放性",
+      "nameEn": "Openness to Experience",
+      "description": "对新经验、抽象思想、审美与非常规想法的开放程度。高分者富于想象、好奇、欣赏艺术与思想；低分者务实、传统、偏好熟悉与具体。",
+      "traitRange": {
+        "min": 20,
+        "max": 100
+      },
+      "poles": {
+        "high": "高开放性：好奇、富于想象、欣赏艺术与抽象思考、乐于尝试新事物。",
+        "low": "低开放性：务实、偏好常规与具体、对抽象理论与艺术兴趣有限。"
+      }
+    },
+    {
+      "code": "C",
+      "name": "尽责性",
+      "nameEn": "Conscientiousness",
+      "description": "自律、有条理、目标导向与责任感的程度。高分者守信、有计划、坚持到底；低分者更随性、易拖延、讨厌被规则束缚。",
+      "traitRange": {
+        "min": 20,
+        "max": 100
+      },
+      "poles": {
+        "high": "高尽责性：有条理、自律、可靠、坚持完成目标。",
+        "low": "低尽责性：随性、易拖延、灵活但组织性较弱。"
+      }
+    },
+    {
+      "code": "E",
+      "name": "外向性",
+      "nameEn": "Extraversion",
+      "description": "从社交互动、积极情绪与外在刺激中获取能量的程度。高分者热情、健谈、乐于成为焦点；低分者安静、内敛、偏好独处或小圈子。",
+      "traitRange": {
+        "min": 20,
+        "max": 100
+      },
+      "poles": {
+        "high": "高外向性：热情、健谈、乐群、精力充沛。",
+        "low": "低外向性：安静、内敛、偏好独处、社交消耗能量。"
+      }
+    },
+    {
+      "code": "A",
+      "name": "宜人性",
+      "nameEn": "Agreeableness",
+      "description": "对他人的信任、合作、体谅与利他倾向。高分者温和、乐于助人、避免冲突；低分者更具竞争性、直率、怀疑与自我主张。",
+      "traitRange": {
+        "min": 20,
+        "max": 100
+      },
+      "poles": {
+        "high": "高宜人性：信任、体贴、合作、乐于助人。",
+        "low": "低宜人性：竞争性强、直率、多疑、坚持己见。"
+      }
+    },
+    {
+      "code": "N",
+      "name": "神经质",
+      "nameEn": "Neuroticism",
+      "description": "情绪不稳定性与压力敏感度。高分者更易焦虑、担忧、情绪起伏大；低分者情绪平稳、抗压、不易被负面事件击垮。",
+      "traitRange": {
+        "min": 20,
+        "max": 100
+      },
+      "poles": {
+        "high": "高神经质：敏感、易焦虑、情绪波动明显。",
+        "low": "低神经质：情绪平稳、冷静、抗压性强。"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "BF-001",
+      "dimension": "O",
+      "text": "我对抽象的思想和理论很感兴趣。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-011",
+      "dimension": "C",
+      "text": "我做事很有条理。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-021",
+      "dimension": "E",
+      "text": "我在社交场合中常常感到充满活力。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-031",
+      "dimension": "A",
+      "text": "我关心别人的处境，愿意主动提供帮助。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-041",
+      "dimension": "N",
+      "text": "我经常感到紧张或焦虑。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-002",
+      "dimension": "O",
+      "text": "我有很活跃的想象力。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-012",
+      "dimension": "C",
+      "text": "我能坚持把定下的目标做完。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-022",
+      "dimension": "E",
+      "text": "我喜欢成为众人注意的中心。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-032",
+      "dimension": "A",
+      "text": "我一般会先假定他人是善意的。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-042",
+      "dimension": "N",
+      "text": "我的情绪起伏比较明显。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-003",
+      "dimension": "O",
+      "text": "我喜欢尝试新鲜的、与众不同的事物。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-013",
+      "dimension": "C",
+      "text": "我习惯提前规划，而不是走一步看一步。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-023",
+      "dimension": "E",
+      "text": "我很容易和别人熟络起来。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-033",
+      "dimension": "A",
+      "text": "我会尽量避免与人发生冲突和争执。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-043",
+      "dimension": "N",
+      "text": "我很容易因为一些小事而心烦。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-004",
+      "dimension": "O",
+      "text": "我对艺术和美的体验有较强的感受力。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-014",
+      "dimension": "C",
+      "text": "我会认真对待自己许下的责任和承诺。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-024",
+      "dimension": "E",
+      "text": "我的情绪基调通常是积极、高昂的。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-034",
+      "dimension": "A",
+      "text": "我很容易体谅别人的心情和难处。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-044",
+      "dimension": "N",
+      "text": "我常常担心可能出现的坏结果。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-005",
+      "dimension": "O",
+      "text": "我经常思考人生、存在以及更深层的意义。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-015",
+      "dimension": "C",
+      "text": "我的工作和生活空间通常整洁有序。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-025",
+      "dimension": "E",
+      "text": "我喜欢热闹的聚会和集体活动。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-035",
+      "dimension": "A",
+      "text": "为了集体或关系的和谐，我愿意做出让步。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-045",
+      "dimension": "N",
+      "text": "我有时会突然陷入情绪低落的状态。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-006",
+      "dimension": "O",
+      "text": "比起变化和新花样，我更喜欢熟悉、常规的事物。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-016",
+      "dimension": "C",
+      "text": "我常常拖延重要的事情。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-026",
+      "dimension": "E",
+      "text": "我很少主动发起与他人的交往。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-036",
+      "dimension": "A",
+      "text": "我有时对人缺乏耐心。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-046",
+      "dimension": "N",
+      "text": "我的情绪总体上是平稳的。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-007",
+      "dimension": "O",
+      "text": "诗歌和文学作品很少能打动我。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-017",
+      "dimension": "C",
+      "text": "我做事有时不够仔细，会漏掉细节。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-027",
+      "dimension": "E",
+      "text": "我更喜欢安静、可以独处的活动。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-037",
+      "dimension": "A",
+      "text": "为了维护自己的立场，我不介意与人争辩。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-047",
+      "dimension": "N",
+      "text": "我很少感到抑郁或沮丧。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-008",
+      "dimension": "O",
+      "text": "我很少琢磨深奥的哲学或抽象问题。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-018",
+      "dimension": "C",
+      "text": "我很难严格遵守自己定下的计划。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-028",
+      "dimension": "E",
+      "text": "在人群里，我常常保持沉默、很少发言。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-038",
+      "dimension": "A",
+      "text": "我有时会怀疑别人的动机。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-048",
+      "dimension": "N",
+      "text": "在压力之下，我依然能保持冷静。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-009",
+      "dimension": "O",
+      "text": "我不太愿意打破既有的做法去尝试新方法。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-019",
+      "dimension": "C",
+      "text": "我很容易被外界干扰，做事难以专注。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-029",
+      "dimension": "E",
+      "text": "我不喜欢引人注目。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-039",
+      "dimension": "A",
+      "text": "我不太容易被他人的困难所打动。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-049",
+      "dimension": "N",
+      "text": "我很少为还没发生的事担忧。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-010",
+      "dimension": "O",
+      "text": "新奇的想法或点子很少让我感到兴奋。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-020",
+      "dimension": "C",
+      "text": "遇到费力或枯燥的任务，我会下意识地回避。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-030",
+      "dimension": "E",
+      "text": "和陌生人交谈会让我感到不自在。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-040",
+      "dimension": "A",
+      "text": "在竞争中，我倾向于不留情面地争取自己那份。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-050",
+      "dimension": "N",
+      "text": "我不容易被挫折击垮，很快能恢复过来。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-051",
+      "dimension": "O",
+      "text": "我喜欢接触不同文化、不同背景的人和事。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-061",
+      "dimension": "C",
+      "text": "我会为重要的事制定明确的时间表。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-071",
+      "dimension": "E",
+      "text": "我喜欢和很多人在一起的感觉。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-081",
+      "dimension": "A",
+      "text": "我愿意花时间倾听别人的烦恼。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-091",
+      "dimension": "N",
+      "text": "我容易因为别人的批评而耿耿于怀。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-052",
+      "dimension": "O",
+      "text": "我经常被新奇的点子或理论激发起兴趣。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-062",
+      "dimension": "C",
+      "text": "我做事善始善终，很少半途而废。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-072",
+      "dimension": "E",
+      "text": "我经常主动约朋友聚会或出行。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-082",
+      "dimension": "A",
+      "text": "我说话尽量委婉，不让人下不来台。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-092",
+      "dimension": "N",
+      "text": "面对不确定的局面，我会感到不安。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-053",
+      "dimension": "O",
+      "text": "我喜欢思考事物背后的“为什么”。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-063",
+      "dimension": "C",
+      "text": "我能抵御诱惑，先完成该做的事。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-073",
+      "dimension": "E",
+      "text": "在团体活动中，我往往是比较活跃的那一个。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-083",
+      "dimension": "A",
+      "text": "我愿意相信大多数人是诚实善良的。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-093",
+      "dimension": "N",
+      "text": "我的情绪容易被外界的事情带着走。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-054",
+      "dimension": "O",
+      "text": "我对音乐、绘画、文学等艺术形式有较强的感受力。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-064",
+      "dimension": "C",
+      "text": "我习惯把用过的物品放回固定的位置。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-074",
+      "dimension": "E",
+      "text": "我喜欢尝试刺激、有挑战的活动。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-084",
+      "dimension": "A",
+      "text": "我愿意与人分享自己的资源和机会。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-094",
+      "dimension": "N",
+      "text": "我有时会莫名地感到烦躁或情绪低落。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-055",
+      "dimension": "O",
+      "text": "我愿意为了新鲜的体验打破日常惯例。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-065",
+      "dimension": "C",
+      "text": "我对自己的产出有较高的标准。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-075",
+      "dimension": "E",
+      "text": "我容易被热闹、欢快的氛围感染。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-085",
+      "dimension": "A",
+      "text": "我会主动照顾身边人的需要。",
+      "direction": "positive",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-095",
+      "dimension": "N",
+      "text": "压力大的时候，我容易失眠或睡不好。",
+      "direction": "positive",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "BF-056",
+      "dimension": "O",
+      "text": "我更喜欢按熟悉的方式做事，不喜欢太多意外。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-066",
+      "dimension": "C",
+      "text": "我的房间或桌面经常处于混乱状态。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-076",
+      "dimension": "E",
+      "text": "我宁愿一个人看书或看剧，也不愿出门社交。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-086",
+      "dimension": "A",
+      "text": "我更关注自己的目标，不太在意别人怎么想。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-096",
+      "dimension": "N",
+      "text": "我很少为小事感到烦恼。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-057",
+      "dimension": "O",
+      "text": "讨论抽象问题让我觉得是在浪费时间。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-067",
+      "dimension": "C",
+      "text": "我做事经常虎头蛇尾。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-077",
+      "dimension": "E",
+      "text": "在人多的场合待久了，我容易感到疲惫。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-087",
+      "dimension": "A",
+      "text": "我觉得太迁就别人会失去自我。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-097",
+      "dimension": "N",
+      "text": "我通常对事情的发展持乐观态度。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-058",
+      "dimension": "O",
+      "text": "我很少主动尝试没接触过的活动。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-068",
+      "dimension": "C",
+      "text": "我很难为了长远目标放弃眼前的享受。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-078",
+      "dimension": "E",
+      "text": "我不喜欢成为谈话的焦点。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-088",
+      "dimension": "A",
+      "text": "我很少因为别人的请求而改变自己的安排。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-098",
+      "dimension": "N",
+      "text": "我能很快从负面情绪中走出来。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-059",
+      "dimension": "O",
+      "text": "看展览或听音乐会时，我常常走神。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-069",
+      "dimension": "C",
+      "text": "我经常丢三落四。",
+      "direction": "reverse",
+      "sourceId": "ipip-adapted",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-079",
+      "dimension": "E",
+      "text": "我很少主动联系朋友，哪怕很久没见。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-089",
+      "dimension": "A",
+      "text": "与人合作时，我更愿意自己拿主意。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-099",
+      "dimension": "N",
+      "text": "我很少过度担心还没发生的事。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-060",
+      "dimension": "O",
+      "text": "我觉得想象力丰富的人多少有点不切实际。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-070",
+      "dimension": "C",
+      "text": "我觉得“差不多就行了”，不必事事较真。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-080",
+      "dimension": "E",
+      "text": "我觉得热闹的场合很消耗人。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-090",
+      "dimension": "A",
+      "text": "我认为适当的竞争能让大家都进步。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "BF-100",
+      "dimension": "N",
+      "text": "面对批评，我能客观看待、不往心里去。",
+      "direction": "reverse",
+      "sourceId": "self-bf",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 5
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 4
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 2
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 1
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "perQuestion": "每题选择一个选项，选项自带该特质得分（1 ~ 5）。正向题 score 为 1→5（不同意到同意），反向题 score 已在选项中直接反转为 5→1，前端无需再做任何换算。",
+    "aggregation": "对每个特质 code（O/C/E/A/N），累加该特质下 20 道题所选选项的 score，得到特质原始分（范围 20 ~ 100）。",
+    "interpretation": "按维度下的 bands 分段解释；五个特质独立呈现，不做类型组合。如需百分位或标准分转换，建议在样本量充足后另行建立常模。",
+    "reverseNote": "direction 为 reverse 的题目已通过选项分值反转实现反向计分，客户端只需求和。该字段仅用于数据审计与题目维护。",
+    "clientPseudocode": "for q in questions: traitScore[q.dimension] += selectedOption.score; report each trait with its band"
+  },
+  "results": {
+    "type": "dimensional",
+    "interpretation": "五个特质各自独立计分，不组合为类型。每个特质按四段区间给出水平描述。",
+    "bandModel": {
+      "min": 20,
+      "max": 100,
+      "bands": [
+        {
+          "label": "低",
+          "min": 20,
+          "max": 44
+        },
+        {
+          "label": "中等偏低",
+          "min": 45,
+          "max": 58
+        },
+        {
+          "label": "中等偏高",
+          "min": 59,
+          "max": 74
+        },
+        {
+          "label": "高",
+          "min": 75,
+          "max": 100
+        }
+      ]
+    },
+    "traits": [
+      {
+        "code": "O",
+        "name": "开放性",
+        "nameEn": "Openness",
+        "bands": {
+          "低": "偏好具体、熟悉与常规，对抽象理论与艺术兴趣有限，决策偏务实。",
+          "中等偏低": "在熟悉领域务实稳健，对新想法保持适度开放，不排斥但也不主动追求变化。",
+          "中等偏高": "好奇心较强，愿意尝试新方法，对艺术、思想与新体验有明显兴趣。",
+          "高": "想象力丰富、热爱抽象思考与审美体验，乐于挑战常规，追求新奇与深度。"
+        }
+      },
+      {
+        "code": "C",
+        "name": "尽责性",
+        "nameEn": "Conscientiousness",
+        "bands": {
+          "低": "随性灵活，组织性较弱，容易拖延，不喜欢被计划和规则束缚。",
+          "中等偏低": "有一定的目标感，但计划性一般，状态起伏时容易偏离日程。",
+          "中等偏高": "做事有条理、能守信履约，多数情况下可以按计划推进任务。",
+          "高": "高度自律、组织严密、目标导向，责任感强，坚持到底。"
+        }
+      },
+      {
+        "code": "E",
+        "name": "外向性",
+        "nameEn": "Extraversion",
+        "bands": {
+          "低": "安静内敛，偏好独处或小范围深度交流，社交较消耗能量。",
+          "中等偏低": "在熟悉圈子里表现自如，对大型社交场合较为被动，需要独处回血。",
+          "中等偏高": "在多数社交场合感到自在，愿意主动交流，能从互动中获得能量。",
+          "高": "热情健谈、乐群、精力充沛，喜欢成为焦点，从外部世界获取大量能量。"
+        }
+      },
+      {
+        "code": "A",
+        "name": "宜人性",
+        "nameEn": "Agreeableness",
+        "bands": {
+          "低": "竞争性强、直率、多疑，坚持己见，不轻易妥协。",
+          "中等偏低": "有自己的立场，必要时敢于争辩，但并非刻意对抗。",
+          "中等偏高": "待人友善、愿意合作与体谅，多数时候能照顾到关系和谐。",
+          "高": "高度信任、体贴、利他，愿意让步与付出，极力避免冲突。"
+        }
+      },
+      {
+        "code": "N",
+        "name": "神经质",
+        "nameEn": "Neuroticism",
+        "bands": {
+          "低": "情绪平稳、冷静、抗压性强，不易被负面事件影响。",
+          "中等偏低": "总体情绪稳定，面对较大压力时才出现明显波动。",
+          "中等偏高": "对压力与评价较为敏感，情绪有一定起伏，偶尔会反复担忧。",
+          "高": "情绪敏感、易焦虑紧张、波动明显，需要更多的情绪调节支持。"
+        }
+      }
+    ],
+    "note": "本分段为便于在线测试呈现而设定的规则区间，非人群常模。若用于研究或高风险决策，需建立目标人群常模后重新标定分段。"
+  }
+}

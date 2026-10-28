@@ -1,0 +1,2309 @@
+{
+  "meta": {
+    "id": "16personalities",
+    "title": "16Personalities（16P）人格测评题库",
+    "titleEn": "16Personalities Question Bank",
+    "framework": "NERIS 五维度模型（Mind / Energy / Nature / Tactics / Identity），在 MBTI 四维度基础上增加 Identity（坚决/谨慎）维度，结果为 16 型 + A/T 后缀",
+    "version": "1.0.0",
+    "language": "zh-CN",
+    "createdAt": "2026-10-28",
+    "questionCount": 60,
+    "dimensionsCount": 5,
+    "optionType": "likert5",
+    "scoringModel": "bipolar",
+    "resultModel": "categorical",
+    "resultSummary": "前四个维度（Mind/Energy/Nature/Tactics）组合为 16 型角色代码（如 INTJ），Identity 维度决定 -A（坚决）或 -T（谨慎）后缀，最终结果形如 INTJ-A / INTJ-T。每维度 12 题、分值区间 -24 ~ +24。",
+    "estimatedMinutes": 10,
+    "sourceStatement": "16Personalities（NERIS Analytics Limited）官方题目受版权保护，本题库不复制任何官方题目。全部 60 题均为自行编制，五维度定义、角色命名与 A/T 后缀规则依据 16Personalities 官网公开的模型说明。",
+    "sources": [
+      {
+        "id": "neris-16p",
+        "type": "public",
+        "title": "16Personalities 官方网站（NERIS Analytics Limited）",
+        "url": "https://www.16personalities.com/",
+        "note": "仅参考其官网公开的五维度模型（Mind/Energy/Nature/Tactics/Identity）、16 型角色命名与 A/T 后缀含义，未使用其受版权保护的测评题目。"
+      },
+      {
+        "id": "self-16p",
+        "type": "self",
+        "title": "自行编制 16P 五维度题库",
+        "url": null,
+        "note": "本文件全部题目均为自行编制，覆盖 Mind、Energy、Nature、Tactics、Identity 五个维度，每维度 12 题，正反向陈述交替以降低默认作答偏差。"
+      }
+    ],
+    "presentationNote": "questions 数组已按维度交错排列（同维度题目等间隔出现），前端可直接顺序呈现；如需进一步降低作答规律性，建议在用户作答时随机打乱题目顺序，题目 id 保持不变。"
+  },
+  "dimensions": [
+    {
+      "code": "MI",
+      "name": "精力方向",
+      "nameEn": "Mind",
+      "description": "决定我们与环境互动的方式：向外在世界寻求刺激与连接，还是向内在世界寻求安静与深度。",
+      "poleA": {
+        "code": "E",
+        "name": "外向",
+        "nameEn": "Extraverted",
+        "description": "通过社交、行动与外部互动获取能量；表达直接，乐于成为注意力的中心。"
+      },
+      "poleB": {
+        "code": "I",
+        "name": "内向",
+        "nameEn": "Introverted",
+        "description": "通过独处、反思与深度交流恢复能量；表达克制，偏好安静、可控的刺激水平。"
+      }
+    },
+    {
+      "code": "EN",
+      "name": "信息认知",
+      "nameEn": "Energy",
+      "description": "决定我们如何处理信息：聚焦具体事实与当下现实，还是聚焦模式、可能性与抽象意义。",
+      "poleA": {
+        "code": "S",
+        "name": "观察型",
+        "nameEn": "Observant",
+        "description": "务实、具体、关注当下细节与可执行方案，信任经验与事实。"
+      },
+      "poleB": {
+        "code": "N",
+        "name": "直觉型",
+        "nameEn": "Intuitive",
+        "description": "富有想象力、关注未来可能性与事物关联，喜欢抽象思考与新概念。"
+      }
+    },
+    {
+      "code": "NA",
+      "name": "决策与情感",
+      "nameEn": "Nature",
+      "description": "决定我们如何做决定与处理情绪：以客观逻辑与效率为准，还是以人际感受与价值认同为准。",
+      "poleA": {
+        "code": "T",
+        "name": "思考型",
+        "nameEn": "Thinking",
+        "description": "注重逻辑、效率与客观标准；直率、就事论事，重视事实胜过感受。"
+      },
+      "poleB": {
+        "code": "F",
+        "name": "情感型",
+        "nameEn": "Feeling",
+        "description": "注重同理、和谐与个人价值；敏感细腻，重视他人的感受与共识。"
+      }
+    },
+    {
+      "code": "TA",
+      "name": "生活与计划",
+      "nameEn": "Tactics",
+      "description": "决定我们应对外部世界的方式：偏好计划、秩序与确定性，还是偏好灵活、开放与自发性。",
+      "poleA": {
+        "code": "J",
+        "name": "判断型",
+        "nameEn": "Judging",
+        "description": "有条理、守时、喜欢明确决定与清晰计划，讨厌失控与拖延。"
+      },
+      "poleB": {
+        "code": "P",
+        "name": "展望型",
+        "nameEn": "Prospecting",
+        "description": "灵活、善于应变、喜欢保留选择空间，讨厌僵化计划与过早定论。"
+      }
+    },
+    {
+      "code": "ID",
+      "name": "自我与压力",
+      "nameEn": "Identity",
+      "description": "决定我们对自身能力、情绪与压力的反应方式（该维度为 16P 相对 MBTI 的扩展维度）。",
+      "poleA": {
+        "code": "A",
+        "name": "坚决型",
+        "nameEn": "Assertive",
+        "description": "情绪平稳、自信从容、抗压性强，不易被外界评价左右，对现状较满意。"
+      },
+      "poleB": {
+        "code": "T",
+        "name": "谨慎型",
+        "nameEn": "Turbulent",
+        "description": "自我要求高、对压力与评价更敏感、容易反复反思，常被“做得更好”驱动。"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "P16-001",
+      "dimension": "MI",
+      "text": "在人群和热闹的场合里，我往往会感到心情变好、更有干劲。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-011",
+      "dimension": "EN",
+      "text": "我更关注事情现在实际是什么样，而不是它可能变成什么样。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-021",
+      "dimension": "NA",
+      "text": "做选择时，我会先列出利弊，用客观标准来衡量。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-031",
+      "dimension": "TA",
+      "text": "我喜欢把事情提前安排妥当，不太能接受临时变来变去。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-041",
+      "dimension": "ID",
+      "text": "即使遇到突发状况，我也能保持情绪平稳、不慌乱。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-002",
+      "dimension": "MI",
+      "text": "忙碌一天之后，我更想一个人待着，而不是继续参加社交活动。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-012",
+      "dimension": "EN",
+      "text": "我常常沉浸在未来设想或各种“可能性”里，以至于忘了眼下。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-022",
+      "dimension": "NA",
+      "text": "做选择时，我会先考虑身边人的感受，尽量不让任何人难过。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-032",
+      "dimension": "TA",
+      "text": "我更喜欢走一步看一步，保留各种可能性到最后再定。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-042",
+      "dimension": "ID",
+      "text": "我常常反复回想自己说过的话、做过的事，担心哪里不妥。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-003",
+      "dimension": "MI",
+      "text": "在集体讨论中，我通常会先开口表达自己的想法。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-013",
+      "dimension": "EN",
+      "text": "别人评价我是一个务实、脚踏实地、注重细节的人。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-023",
+      "dimension": "NA",
+      "text": "朋友向我倾诉时，我会忍不住想先分析问题出在哪、怎么解决。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-033",
+      "dimension": "TA",
+      "text": "一旦做了决定，我会希望尽快执行，不喜欢一直拖着。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-043",
+      "dimension": "ID",
+      "text": "总体来说，我对自己的能力有比较稳定的信心。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-004",
+      "dimension": "MI",
+      "text": "我更喜欢用文字慢慢组织想法，而不是直接开口或打电话。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-014",
+      "dimension": "EN",
+      "text": "比起按部就班地执行，我更喜欢构思全新的框架和创意。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-024",
+      "dimension": "NA",
+      "text": "朋友向我倾诉时，我第一反应是先共情、先接住他的情绪。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-034",
+      "dimension": "TA",
+      "text": "我经常在截止日期快到时才进入状态，反而做得不错。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-044",
+      "dimension": "ID",
+      "text": "别人一句负面评价，可能会让我难受好几天。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-005",
+      "dimension": "MI",
+      "text": "朋友形容我是一个“好相处、爱热闹、容易自来熟”的人。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-015",
+      "dimension": "EN",
+      "text": "我倾向于用清晰、具体的语言描述事情，不喜欢绕弯子讲玄乎的概念。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-025",
+      "dimension": "NA",
+      "text": "我常被形容为“冷静、理性、就事论事”的人。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-035",
+      "dimension": "TA",
+      "text": "我的日程表、文件和物品通常都是井井有条的。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-045",
+      "dimension": "ID",
+      "text": "犯错之后，我通常能很快调整好心态继续往前走。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-006",
+      "dimension": "MI",
+      "text": "如果周末一直没有自己的独处时间，我会觉得整个人被掏空。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-016",
+      "dimension": "EN",
+      "text": "我经常从一件毫不相关的事里，突然联想到另一个点子。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-026",
+      "dimension": "NA",
+      "text": "如果我的话让别人不舒服，即使道理是对的，我也会很自责。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-036",
+      "dimension": "TA",
+      "text": "我觉得规则和流程如果妨碍了效率，就应该被打破。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-046",
+      "dimension": "ID",
+      "text": "我总觉得现在的自己还不够好，必须再努力一点。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-007",
+      "dimension": "MI",
+      "text": "我享受成为聚会或活动中被关注、被围绕的那个人。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-017",
+      "dimension": "EN",
+      "text": "学习新技能时，我更想先看别人是怎么做的、跟着一步步模仿。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-027",
+      "dimension": "NA",
+      "text": "讨论问题时，我更在意结论是否成立、是否公平一致。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-037",
+      "dimension": "TA",
+      "text": "我习惯列待办清单，并按优先级一项项完成。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-047",
+      "dimension": "ID",
+      "text": "我很少因为还没发生的事而提前紧张。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-008",
+      "dimension": "MI",
+      "text": "在陌生的社交场合，我常常不知道该说什么，宁可待在角落。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-018",
+      "dimension": "EN",
+      "text": "我经常思考一件事的深层含义、象征或它与更大图景的关联。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-028",
+      "dimension": "NA",
+      "text": "我很在意团队里的氛围是否融洽，会主动去调解不愉快。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-038",
+      "dimension": "TA",
+      "text": "我经常同时答应好几件事，然后再想办法挤时间。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-048",
+      "dimension": "ID",
+      "text": "我比多数人更容易感到紧张、焦虑或压力大。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-009",
+      "dimension": "MI",
+      "text": "我喜欢认识各种各样的人，朋友圈子通常比较广。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-019",
+      "dimension": "EN",
+      "text": "我对抽象的哲学或理论讨论兴趣不大，更想知道“这有什么用”。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-029",
+      "dimension": "NA",
+      "text": "我很少因为情绪而改变自己的判断和决定。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-039",
+      "dimension": "TA",
+      "text": "面对多个选项时，我会尽快选定一个，然后专注执行。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-049",
+      "dimension": "ID",
+      "text": "我不太需要靠别人的认可来确认自己的价值。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-010",
+      "dimension": "MI",
+      "text": "比起参加大型聚会，我更愿意约一两个朋友安静地吃顿饭。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-020",
+      "dimension": "EN",
+      "text": "我常常对还没发生的事充满想象，甚至提前规划好多种版本。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-030",
+      "dimension": "NA",
+      "text": "电影、书籍或他人的故事很容易让我感同身受甚至落泪。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-040",
+      "dimension": "TA",
+      "text": "我常常收集了很多信息，却迟迟不做最后决定。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-050",
+      "dimension": "ID",
+      "text": "我经常不自觉地和同龄人或同行比较，然后觉得自己落后了。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-051",
+      "dimension": "MI",
+      "text": "和人打交道让我觉得充实，而不是负担。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-053",
+      "dimension": "EN",
+      "text": "比起推测和引申，我更相信“眼见为实”。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-055",
+      "dimension": "NA",
+      "text": "别人有时评价我“理性得近乎冷淡”。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-057",
+      "dimension": "TA",
+      "text": "我喜欢确定性，讨厌“到时候再说”。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-059",
+      "dimension": "ID",
+      "text": "大多数时候，我对自己现在的状态是满意的。",
+      "direction": "A",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": -2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": -1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": 1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "P16-052",
+      "dimension": "MI",
+      "text": "我常常在心里默默观察和评价，而不是说出来。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-054",
+      "dimension": "EN",
+      "text": "我经常注意到事物的象征意义或话里的潜台词。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-056",
+      "dimension": "NA",
+      "text": "我很容易被他人的故事和经历打动。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-058",
+      "dimension": "TA",
+      "text": "我觉得生活里保留一些不确定性反而更有意思。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    },
+    {
+      "id": "P16-060",
+      "dimension": "ID",
+      "text": "我经常觉得自己还可以表现得更好。",
+      "direction": "B",
+      "sourceId": "self-16p",
+      "options": [
+        {
+          "id": "1",
+          "text": "非常不同意",
+          "score": 2
+        },
+        {
+          "id": "2",
+          "text": "比较不同意",
+          "score": 1
+        },
+        {
+          "id": "3",
+          "text": "不确定",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "text": "比较同意",
+          "score": -1
+        },
+        {
+          "id": "5",
+          "text": "非常同意",
+          "score": -2
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "perQuestion": "每题选择一个选项，选项自带 score（-2 ~ +2）。score > 0 表示偏向该维度 poleA，score < 0 表示偏向 poleB，0 为中立。",
+    "aggregation": "对每个维度 code（MI/EN/NA/TA/ID），累加该维度下 12 道题所选选项的 score，得到维度得分（范围 -24 ~ +24）。",
+    "interpretation": "前四个维度（MI/EN/NA/TA）得分 > 0 取 poleA 字母，< 0 取 poleB 字母；ID 维度得分 ≥ 0 → A（坚决型），< 0 → T（谨慎型）。",
+    "letterOrder": [
+      "MI",
+      "EN",
+      "NA",
+      "TA"
+    ],
+    "identitySuffix": "ID 维度决定结果后缀：≥ 0 为 -A，< 0 为 -T。",
+    "tieBreak": "前四个维度若得分为 0，结果代码中用 X 占位（如 INXJ-A）并提示该维度倾向不明显；ID 得分为 0 时默认 -A 并提示倾向不明显。",
+    "clientPseudocode": "for q in questions: dimScore[q.dimension] += selectedOption.score; type4 = (dimScore.MI>=0?'E':'I') + (dimScore.EN>=0?'S':'N') + (dimScore.NA>=0?'T':'F') + (dimScore.TA>=0?'J':'P'); suffix = dimScore.ID>=0?'-A':'-T'; result = type4 + suffix"
+  },
+  "results": {
+    "type": "categorical",
+    "combination": "前四个维度组合为 16 型角色代码，Identity 维度追加 -A 或 -T 后缀，共 32 种呈现变体。",
+    "identityNote": "A（坚决型）：情绪平稳、自信、抗压；T（谨慎型）：自我要求高、对压力与评价更敏感、追求进步。同一 16 型在 A/T 下行为表现会有差异，但类型核心一致。",
+    "roles": [
+      {
+        "code": "INTJ",
+        "name": "建筑师",
+        "nameEn": "Architect",
+        "group": "分析家",
+        "summary": "富有想象力和战略性的思想家，一切皆在计划之中。"
+      },
+      {
+        "code": "INTP",
+        "name": "逻辑学家",
+        "nameEn": "Logician",
+        "group": "分析家",
+        "summary": "具有创造力的发明家，对知识有着止不住的渴望。"
+      },
+      {
+        "code": "ENTJ",
+        "name": "指挥官",
+        "nameEn": "Commander",
+        "group": "分析家",
+        "summary": "大胆，富有想象力，意志强大的领导者。"
+      },
+      {
+        "code": "ENTP",
+        "name": "辩论家",
+        "nameEn": "Debater",
+        "group": "分析家",
+        "summary": "聪明好奇的思想者，不会放弃任何智力上的挑战。"
+      },
+      {
+        "code": "INFJ",
+        "name": "提倡者",
+        "nameEn": "Advocate",
+        "group": "外交家",
+        "summary": "安静而神秘，同时鼓舞人心且不知疲倦的理想主义者。"
+      },
+      {
+        "code": "INFP",
+        "name": "调停者",
+        "nameEn": "Mediator",
+        "group": "外交家",
+        "summary": "诗意，善良的利他主义者，总是热情地为正当理由提供帮助。"
+      },
+      {
+        "code": "ENFJ",
+        "name": "主人公",
+        "nameEn": "Protagonist",
+        "group": "外交家",
+        "summary": "有魅力，鼓舞人心的领导者，有使听众着迷的能力。"
+      },
+      {
+        "code": "ENFP",
+        "name": "竞选者",
+        "nameEn": "Campaigner",
+        "group": "外交家",
+        "summary": "热情，有创造力爱社交的自由自在的人，总能找到理由微笑。"
+      },
+      {
+        "code": "ISTJ",
+        "name": "物流师",
+        "nameEn": "Logistician",
+        "group": "哨兵",
+        "summary": "实际，注重事实的个人，可靠性不容怀疑。"
+      },
+      {
+        "code": "ISFJ",
+        "name": "守卫者",
+        "nameEn": "Defender",
+        "group": "哨兵",
+        "summary": "非常专注而温暖的守护者，时刻准备着保护爱着的人们。"
+      },
+      {
+        "code": "ESTJ",
+        "name": "总经理",
+        "nameEn": "Executive",
+        "group": "哨兵",
+        "summary": "出色的管理者，在管理事情或人的方面无与伦比。"
+      },
+      {
+        "code": "ESFJ",
+        "name": "执政官",
+        "nameEn": "Consul",
+        "group": "哨兵",
+        "summary": "极有同情心，爱交往受欢迎的人，总是热心提供帮助。"
+      },
+      {
+        "code": "ISTP",
+        "name": "鉴赏家",
+        "nameEn": "Virtuoso",
+        "group": "探险家",
+        "summary": "大胆而实际的实验家，擅长使用任何形式的工具。"
+      },
+      {
+        "code": "ISFP",
+        "name": "探险家",
+        "nameEn": "Adventurer",
+        "group": "探险家",
+        "summary": "灵活有魅力的艺术家，时刻准备着探索和体验新鲜事物。"
+      },
+      {
+        "code": "ESTP",
+        "name": "企业家",
+        "nameEn": "Entrepreneur",
+        "group": "探险家",
+        "summary": "聪明，精力充沛善于感知的人，真心享受生活在边缘。"
+      },
+      {
+        "code": "ESFP",
+        "name": "表演者",
+        "nameEn": "Entertainer",
+        "group": "探险家",
+        "summary": "自发的，精力充沛而热情的人 – 生活在他们周围永不无聊。"
+      }
+    ],
+    "groups": [
+      "分析家",
+      "外交家",
+      "哨兵",
+      "探险家"
+    ]
+  }
+}
