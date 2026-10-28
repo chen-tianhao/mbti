@@ -16,7 +16,7 @@
  */
 
 const MAX_PDF_BYTES = 6 * 1024 * 1024; // base64 约 8MB 原文上限，防止滥用
-const DEFAULT_FROM = '心镜测评 <noreply@mail.mindmirror.example>';
+const DEFAULT_FROM = '心镜测评 <noreply@mail.peachplum.tech>';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function json(data, status = 200) {
